@@ -1,0 +1,90 @@
+@import '@fontsource/space-grotesk/700.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/jetbrains-mono/500.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Default: Dark Theme */
+  --color-primary: #22D3EE;
+  --color-primary-hover: #06b6d4;
+  --color-accent: #FBBF24;
+  --color-accent-orange: #F97316;
+  --color-bg: #070B14;
+  --color-surface: #101826;
+  --color-surface-glass: rgba(16, 24, 38, 0.75);
+  --color-surface-border: rgba(255, 255, 255, 0.08);
+  --color-text-primary: #E6EDF7;
+  --color-text-secondary: #94A3B8;
+  --blueprint-line: rgba(34, 211, 238, 0.04);
+  --blueprint-subline: rgba(34, 211, 238, 0.02);
+  --blueprint-dot: rgba(34, 211, 238, 0.12);
+}
+
+html:not(.dark) {
+  /* Light Theme */
+  --color-primary: #0891B2;
+  --color-primary-hover: #0e7490;
+  --color-accent: #D97706;
+  --color-accent-orange: #ea580c;
+  --color-bg: #F5F8FC;
+  --color-surface: #FFFFFF;
+  --color-surface-glass: rgba(255, 255, 255, 0.85);
+  --color-surface-border: rgba(11, 18, 32, 0.08);
+  --color-text-primary: #0B1220;
+  --color-text-secondary: #475569;
+  --blueprint-line: rgba(8, 145, 178, 0.06);
+  --blueprint-subline: rgba(8, 145, 178, 0.03);
+  --blueprint-dot: rgba(8, 145, 178, 0.14);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  overflow-x: hidden;
+}
+
+/* Accessible focus ring */
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Blueprint Grid Background */
+.blueprint-grid {
+  background-size: 60px 60px, 60px 60px, 15px 15px, 15px 15px;
+  background-image: 
+    linear-gradient(to right, var(--blueprint-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--blueprint-line) 1px, transparent 1px),
+    linear-gradient(to right, var(--blueprint-subline) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--blueprint-subline) 1px, transparent 1px);
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: var(--color-surface-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-surface-border);
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
